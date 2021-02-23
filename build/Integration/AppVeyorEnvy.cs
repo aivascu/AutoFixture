@@ -1,6 +1,8 @@
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using System.Text.RegularExpressions;
+using Nuke.Common;
 using Nuke.Common.CI.AppVeyor;
 using Nuke.Common.IO;
 using Nuke.Common.Utilities.Collections;
@@ -35,7 +37,18 @@ namespace Integration
 
             directory
                 .GlobFiles(patterns)
-                .ForEach(x => wc.UploadFile(address, x));
+                .ForEach(x =>
+                {
+                    Logger.Info("Uploading file {0} ... ", x);
+                    try
+                    {
+                        wc.UploadFile(address, x);
+                    }
+                    catch (Exception e)
+                    {
+                        Logger.Error(e);
+                    }
+                });
         }
 
         static string GetType(TestType type)
