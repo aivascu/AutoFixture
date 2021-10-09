@@ -57,8 +57,8 @@ let configuration =
 
 let getFeed (versionInfo:GitVersion.GitVersionProperties) =
   match versionInfo.BranchName, versionInfo.PreReleaseLabel with
-  | "master", _   -> getNuGetFeed ()
-  | _, "preview"  -> getMyGetFeed ()
+  | "master", _   -> getFeed NuGet
+  | _, "preview"  -> getFeed MyGet
   | _, _          -> None
 
 let setMsBuildParams parameters:MSBuild.CliArguments =
