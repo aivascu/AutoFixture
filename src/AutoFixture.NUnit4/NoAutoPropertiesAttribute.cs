@@ -1,7 +1,4 @@
-﻿using System;
-using System.Reflection;
-
-namespace AutoFixture.NUnit4;
+﻿namespace AutoFixture.NUnit4;
 
 /// <summary>
 /// An attribute that can be applied to parameters in an <see cref="AutoDataAttribute"/>-driven
@@ -23,7 +20,7 @@ public sealed class NoAutoPropertiesAttribute : CustomizeAttribute
     /// </exception>
     public override ICustomization GetCustomization(ParameterInfo parameter)
     {
-        if (parameter == null) throw new ArgumentNullException(nameof(parameter));
+        if (parameter is null) throw new ArgumentNullException(nameof(parameter));
 
         var targetType = parameter.ParameterType;
         return new NoAutoPropertiesCustomization(targetType);

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using AutoFixture.Dsl;
-using AutoFixture.Kernel;
-
-namespace AutoFixture.NUnit4.UnitTest;
+﻿namespace AutoFixture.NUnit4.UnitTest.Common;
 
 /// <summary>
 /// A <see cref="IFixture"/> for the benefit of creating stubs of <see cref="AutoDataAttribute"/>

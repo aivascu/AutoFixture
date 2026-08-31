@@ -1,14 +1,11 @@
-﻿using System;
-using System.Reflection;
-
-namespace AutoFixture.NUnit4;
+﻿namespace AutoFixture.NUnit4;
 
 /// <summary>
 /// The criteria used to determine which requests will be satisfied
 /// by the frozen specimen created for a parameter
 /// decorated with the <see cref="FrozenAttribute"/> attribute.
 /// </summary>
-[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1714:FlagsEnumsShouldHavePluralNames", Justification = "This enumeration is designed to be used together with an attribute and is named to improve readability.")]
+[SuppressMessage("Microsoft.Naming", "CA1714:FlagsEnumsShouldHavePluralNames", Justification = "This enumeration is designed to be used together with an attribute and is named to improve readability.")]
 [Flags]
 public enum Matching
 {

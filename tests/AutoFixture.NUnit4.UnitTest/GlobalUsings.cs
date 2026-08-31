@@ -1,0 +1,15 @@
+global using System;
+global using System.Collections.Generic;
+global using System.ComponentModel.DataAnnotations;
+global using System.Diagnostics.CodeAnalysis;
+global using System.Linq;
+global using System.Reflection;
+global using System.Threading;
+global using AutoFixture.Dsl;
+global using AutoFixture.Kernel;
+global using AutoFixture.NUnit4.UnitTest.Common;
+global using NUnit.Framework;
+global using NUnit.Framework.Interfaces;
+global using NUnit.Framework.Internal;
+global using NUnit.Framework.Legacy;
+global using TestTypeFoundation;

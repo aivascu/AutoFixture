@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using NUnit.Framework.Interfaces;
-using NUnit.Framework.Internal;
-using NUnit.Framework.Internal.Builders;
-
-namespace AutoFixture.NUnit4;
+﻿namespace AutoFixture.NUnit4;
 
 /// Creates <see cref="TestMethod"/> instances with name that includes actual argument values.
 /// <para>
@@ -18,12 +10,12 @@ public class VolatileNameTestMethodBuilder : ITestMethodBuilder
     /// <inheritdoc />
     public TestMethod Build(IMethodInfo method, Test suite, IEnumerable<object> parameterValues, int autoDataStartIndex)
     {
-        if (method == null)
+        if (method is null)
         {
             throw new ArgumentNullException(nameof(method));
         }
 
-        if (parameterValues == null)
+        if (parameterValues is null)
         {
             throw new ArgumentNullException(nameof(parameterValues));
         }

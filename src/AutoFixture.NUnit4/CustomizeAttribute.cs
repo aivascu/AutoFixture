@@ -1,7 +1,4 @@
-﻿using System;
-using System.Reflection;
-
-namespace AutoFixture.NUnit4;
+﻿namespace AutoFixture.NUnit4;
 
 /// <summary>
 /// Base class for customizing parameters in methods decorated with

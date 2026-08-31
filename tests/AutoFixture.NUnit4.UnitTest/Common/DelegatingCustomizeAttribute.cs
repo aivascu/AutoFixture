@@ -1,7 +1,4 @@
-﻿using System;
-using System.Reflection;
-
-namespace AutoFixture.NUnit4.UnitTest;
+﻿namespace AutoFixture.NUnit4.UnitTest.Common;
 
 internal class DelegatingCustomizeAttribute : CustomizeAttribute
 {

@@ -1,6 +1,4 @@
-using System;
-
-namespace AutoFixture.NUnit4.UnitTest;
+namespace AutoFixture.NUnit4.UnitTest.Common;
 
 /// <summary>
 /// A stub of <see cref="AutoDataAttribute"/> for the benefit of unit testing.

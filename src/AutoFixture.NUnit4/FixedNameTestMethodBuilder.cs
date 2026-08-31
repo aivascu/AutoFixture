@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Reflection;
-using NUnit.Framework.Interfaces;
-using NUnit.Framework.Internal;
-using NUnit.Framework.Internal.Builders;
-
-namespace AutoFixture.NUnit4;
+﻿namespace AutoFixture.NUnit4;
 
 /// <summary>
 /// Builder that generates <see cref="TestMethod"/> with fixed names.
@@ -20,8 +11,8 @@ public class FixedNameTestMethodBuilder : ITestMethodBuilder
     public virtual TestMethod Build(
         IMethodInfo method, Test suite, IEnumerable<object> parameterValues, int autoDataStartIndex)
     {
-        if (method == null) throw new ArgumentNullException(nameof(method));
-        if (parameterValues == null) throw new ArgumentNullException(nameof(parameterValues));
+        if (method is null) throw new ArgumentNullException(nameof(method));
+        if (parameterValues is null) throw new ArgumentNullException(nameof(parameterValues));
 
         return new NUnitTestCaseBuilder()
             .BuildTestMethod(method, suite, GetParametersForMethod(method, parameterValues, autoDataStartIndex));
@@ -49,7 +40,7 @@ public class FixedNameTestMethodBuilder : ITestMethodBuilder
         EnsureOriginalArgumentsArrayIsNotShared(result);
 
         var methodParameters = method.GetParameters();
-        for (int i = autoDataStartIndex; i < result.OriginalArguments.Length; i++)
+        for (var i = autoDataStartIndex; i < result.OriginalArguments.Length; i++)
         {
             result.OriginalArguments[i] = new TypeNameRenderer(methodParameters[i].ParameterType);
         }
@@ -67,16 +58,16 @@ public class FixedNameTestMethodBuilder : ITestMethodBuilder
     /// </summary>
     private static void EnsureOriginalArgumentsArrayIsNotShared(TestCaseParameters parameters)
     {
-        if (ReferenceEquals(parameters.Arguments, parameters.OriginalArguments))
-        {
-            var clonedArguments = new object[parameters.OriginalArguments.Length];
-            Array.Copy(parameters.OriginalArguments, clonedArguments, parameters.OriginalArguments.Length);
+        if (!ReferenceEquals(parameters.Arguments, parameters.OriginalArguments)) return;
 
-            // Unfortunately the property has a private setter, so can be updated via reflection only.
-            // Should use the type where the property is declared as otherwise the private setter is not available.
-            var property = typeof(TestParameters).GetTypeInfo().GetProperty(nameof(TestCaseParameters.OriginalArguments));
-            property.SetValue(parameters, clonedArguments, null);
-        }
+        var clonedArguments = new object[parameters.OriginalArguments.Length];
+        Array.Copy(parameters.OriginalArguments, clonedArguments, parameters.OriginalArguments.Length);
+
+        // Unfortunately the property has a private setter, so can be updated via reflection only.
+        // Should use the type where the property is declared as otherwise the private setter is not available.
+        var property = typeof(TestParameters).GetTypeInfo()
+            .GetProperty(nameof(TestCaseParameters.OriginalArguments));
+        property.SetValue(parameters, clonedArguments, null);
     }
 
     private class TypeNameRenderer

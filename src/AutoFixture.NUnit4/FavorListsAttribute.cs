@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
-using AutoFixture.Kernel;
-
-namespace AutoFixture.NUnit4;
+﻿namespace AutoFixture.NUnit4;
 
 /// <summary>
 /// An attribute that can be applied to parameters in an <see cref="AutoDataAttribute"/>-driven
@@ -24,7 +19,7 @@ public sealed class FavorListsAttribute : CustomizeAttribute
     /// </returns>
     public override ICustomization GetCustomization(ParameterInfo parameter)
     {
-        if (parameter == null) throw new ArgumentNullException(nameof(parameter));
+        if (parameter is null) throw new ArgumentNullException(nameof(parameter));
 
         return new ConstructorCustomization(parameter.ParameterType, new ListFavoringConstructorQuery());
     }

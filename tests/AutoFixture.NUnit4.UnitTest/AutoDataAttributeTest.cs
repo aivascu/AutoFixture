@@ -1,12 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using NUnit.Framework;
-using NUnit.Framework.Interfaces;
-using NUnit.Framework.Internal;
-using NUnit.Framework.Legacy;
-
 namespace AutoFixture.NUnit4.UnitTest;
 
 [TestFixture]
@@ -39,7 +30,7 @@ public class AutoDataAttributeTest
         };
 
         // Assert
-        var sut = new AutoDataAttributeStub(fixtureFactory);
+        _ = new AutoDataAttributeStub(fixtureFactory);
 
         // Assert
         ClassicAssert.False(wasInvoked);
@@ -59,7 +50,7 @@ public class AutoDataAttributeTest
         var autoDataAttribute = new AutoDataAttribute();
         var fixtureType = GetType();
 
-        var methodWrapper = new MethodWrapper(fixtureType, fixtureType.GetMethod("DummyTestMethod"));
+        var methodWrapper = new MethodWrapper(fixtureType, fixtureType.GetMethod(nameof(DummyTestMethod)));
         var testSuite = new TestSuite(fixtureType);
 
         // Act
@@ -86,7 +77,7 @@ public class AutoDataAttributeTest
         var testSuite = new TestSuite(GetType());
 
         // Act
-        var dummy = sut.BuildFrom(methodWrapper, testSuite).ToArray();
+        _ = sut.BuildFrom(methodWrapper, testSuite).ToArray();
 
         // Assert
         ClassicAssert.False(wasActivated);
@@ -118,7 +109,7 @@ public class AutoDataAttributeTest
 
         var fixtureType = GetType();
 
-        var methodWrapper = new MethodWrapper(fixtureType, fixtureType.GetMethod("DummyTestMethod"));
+        var methodWrapper = new MethodWrapper(fixtureType, fixtureType.GetMethod(nameof(DummyTestMethod)));
         var testSuite = new TestSuite(fixtureType);
 
         // Act

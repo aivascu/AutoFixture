@@ -1,11 +1,3 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
-using AutoFixture.Kernel;
-using NUnit.Framework;
-using NUnit.Framework.Legacy;
-using TestTypeFoundation;
-
 namespace AutoFixture.NUnit4.UnitTest;
 
 [TestFixture]

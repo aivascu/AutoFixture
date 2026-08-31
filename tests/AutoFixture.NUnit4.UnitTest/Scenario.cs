@@ -1,10 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using NUnit.Framework;
 using NUnit.Framework.Constraints;
-using NUnit.Framework.Legacy;
-using TestTypeFoundation;
 
 namespace AutoFixture.NUnit4.UnitTest;
 

@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using NUnit.Framework.Interfaces;
-using NUnit.Framework.Internal;
-
-namespace AutoFixture.NUnit4;
+﻿namespace AutoFixture.NUnit4;
 
 /// <summary>
 /// Utility used to create a <see cref="TestMethod"/> instance.

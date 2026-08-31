@@ -1,13 +1,11 @@
-using System;
-
-namespace AutoFixture.NUnit4.UnitTest;
+namespace AutoFixture.NUnit4.UnitTest.Common;
 
 /// <summary>
 /// A stub of <see cref="InlineAutoDataAttribute"/> for the benefit of unit testing.
 /// </summary>
 public class InlineAutoDataAttributeStub : InlineAutoDataAttribute
 {
-  public InlineAutoDataAttributeStub(Func<IFixture> fixtureFactory, params object[] arguments)
+    public InlineAutoDataAttributeStub(Func<IFixture> fixtureFactory, params object[] arguments)
         : base(fixtureFactory, arguments)
     {
     }

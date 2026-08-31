@@ -1,7 +1,6 @@
-﻿using TestTypeFoundation;
+﻿namespace AutoFixture.NUnit4.UnitTest.Common;
 
-namespace AutoFixture.NUnit4.UnitTest;
-
+[SuppressMessage("ReSharper", "UnusedMember.Global", Justification = "Members are invoked by reflection.")]
 internal class TypeWithCustomizationAttributes
 {
     public void CreateWithFrozenAndFavorArrays([Frozen, FavorArrays] ConcreteType sut)

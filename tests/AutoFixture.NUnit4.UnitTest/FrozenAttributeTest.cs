@@ -1,7 +1,3 @@
-﻿using System;
-using NUnit.Framework;
-using NUnit.Framework.Legacy;
-
 namespace AutoFixture.NUnit4.UnitTest;
 
 [TestFixture]

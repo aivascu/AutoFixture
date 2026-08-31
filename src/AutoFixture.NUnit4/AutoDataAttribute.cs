@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Threading;
-using AutoFixture.Kernel;
-using NUnit.Framework.Interfaces;
-using NUnit.Framework.Internal;
-
-namespace AutoFixture.NUnit4;
+﻿namespace AutoFixture.NUnit4;
 
 /// <summary>
 /// This attribute uses AutoFixture to generate values for unit test parameters.
@@ -49,7 +40,7 @@ public class AutoDataAttribute : Attribute, ITestBuilder
     /// <param name="fixtureFactory">The fixture factory used to construct the fixture.</param>
     protected AutoDataAttribute(Func<IFixture> fixtureFactory)
     {
-        if (fixtureFactory == null) throw new ArgumentNullException(nameof(fixtureFactory));
+        if (fixtureFactory is null) throw new ArgumentNullException(nameof(fixtureFactory));
 
         _fixtureLazy = new Lazy<IFixture>(fixtureFactory, LazyThreadSafetyMode.PublicationOnly);
     }
@@ -63,7 +54,7 @@ public class AutoDataAttribute : Attribute, ITestBuilder
     /// <returns>One or more TestMethods.</returns>
     public IEnumerable<TestMethod> BuildFrom(IMethodInfo method, Test suite)
     {
-        if (method == null) throw new ArgumentNullException(nameof(method));
+        if (method is null) throw new ArgumentNullException(nameof(method));
 
         var test = TestMethodBuilder.Build(method, suite, GetParameterValues(method), 0);
 

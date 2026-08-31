@@ -1,4 +1,4 @@
-﻿namespace AutoFixture.NUnit4.UnitTest;
+﻿namespace AutoFixture.NUnit4.UnitTest.Common;
 
 public class MyClass
 {

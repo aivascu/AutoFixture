@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Threading;
-using AutoFixture.Kernel;
-using NUnit.Framework.Interfaces;
-using NUnit.Framework.Internal;
-
-namespace AutoFixture.NUnit4;
+﻿namespace AutoFixture.NUnit4;
 
 /// <summary>
 /// This attribute acts as a TestCaseAttribute but allow incomplete parameter values,
@@ -49,7 +40,7 @@ public class InlineAutoDataAttribute : Attribute, ITestBuilder
     /// </summary>
     protected InlineAutoDataAttribute(Func<IFixture> fixtureFactory, params object[] arguments)
     {
-        if (fixtureFactory == null) throw new ArgumentNullException(nameof(fixtureFactory));
+        if (fixtureFactory is null) throw new ArgumentNullException(nameof(fixtureFactory));
 
         _fixtureLazy = new Lazy<IFixture>(fixtureFactory, LazyThreadSafetyMode.PublicationOnly);
         _existingParameterValues = arguments ?? new object[] { null };
@@ -69,7 +60,7 @@ public class InlineAutoDataAttribute : Attribute, ITestBuilder
     /// <returns>One or more TestMethods.</returns>
     public IEnumerable<TestMethod> BuildFrom(IMethodInfo method, Test suite)
     {
-        if (method == null) throw new ArgumentNullException(nameof(method));
+        if (method is null) throw new ArgumentNullException(nameof(method));
 
         var test = TestMethodBuilder.Build(
             method, suite, GetParameterValues(method), _existingParameterValues.Length);

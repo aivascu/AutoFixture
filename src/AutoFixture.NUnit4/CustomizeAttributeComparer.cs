@@ -1,20 +1,18 @@
-﻿using System.Collections.Generic;
-
 namespace AutoFixture.NUnit4;
 
 internal class CustomizeAttributeComparer : Comparer<IParameterCustomizationSource>
 {
     public override int Compare(IParameterCustomizationSource x, IParameterCustomizationSource y)
     {
-        var xfrozen = x is FrozenAttribute;
-        var yfrozen = y is FrozenAttribute;
+        var xFrozen = x is FrozenAttribute;
+        var yFrozen = y is FrozenAttribute;
 
-        if (xfrozen && !yfrozen)
+        if (xFrozen && !yFrozen)
         {
             return 1;
         }
 
-        if (yfrozen && !xfrozen)
+        if (yFrozen && !xFrozen)
         {
             return -1;
         }

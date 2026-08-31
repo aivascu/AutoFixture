@@ -1,11 +1,6 @@
-﻿using System.Linq;
-using System.Reflection;
-using NUnit.Framework;
-using NUnit.Framework.Legacy;
+﻿namespace AutoFixture.NUnit4.UnitTest;
 
-namespace AutoFixture.NUnit4.UnitTest;
-
-public class DependencyConstraints
+public class DependencyConstraintsTest
 {
     [Test]
     [InlineAutoData("FakeItEasy")]

@@ -1,9 +1,3 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
-using NUnit.Framework;
-using NUnit.Framework.Internal;
-
 namespace AutoFixture.NUnit4.UnitTest;
 
 public class TestNameStrategiesTest
